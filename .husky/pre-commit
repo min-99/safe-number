@@ -1,0 +1,7 @@
+# .husky/pre-commit
+
+# pnpm으로 lint-staged 실행 (변경된 파일만 검사)
+pnpm exec lint-staged
+
+# (선택사항) 커밋 전에 테스트까지 돌리고 싶다면 아래 줄 주석 해제
+# pnpm test
