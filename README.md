@@ -1,10 +1,8 @@
-# safe-number
-
 # 🛡️ safe-number
 
-> **"JavaScript의 `Number` 한계를 넘어, 금융/알고리즘 연산을 안전하고 우아하게."**
+> "JavaScript의 `Number` 한계를 넘어, 금융/알고리즘 연산을 안전하고 편리하게."
 >
-> **Type-Safe BigInt Utility Library for Modern TypeScript Projects**
+> Type-Safe BigInt Utility Library for Modern TypeScript Projects
 
 [![CI Status](https://img.shields.io/github/actions/workflow/status/min-99/safe-number/ci.yml?style=flat-square&logo=github)](https://github.com/min-99/safe-number/actions)
 
@@ -14,7 +12,7 @@
 
 ## 🧐 Motivation (왜 만들었나요?)
 
-JavaScript의 기본 `Number` 타입은 $2^{53}-1$을 넘어가면 정밀도를 잃습니다(Safe Integer Overflow). 이를 해결하기 위해 `BigInt`가 도입되었지만, 실제 개발 환경에서는 다음과 같은 불편함(Pain Points)이 존재했습니다.
+JavaScript의 기본 `Number` 타입은 2^{53}-1을 넘어가면 정밀도를 잃습니다(Safe Integer Overflow). 이를 해결하기 위해 `BigInt`가 도입되었지만, 실제 개발 환경에서는 다음과 같은 불편함(Pain Points)이 존재했습니다.
 
 1.  **Strict Type Mixing:** `10n + 1` 처럼 `BigInt`와 `Number`를 섞어서 연산하면 런타임 에러(`TypeError`)가 발생합니다.
 2.  **Algorithmic Limitation:** `Math.max()` 등에 `BigInt` 배열을 넣을 수 없거나, Spread Operator 사용 시 Call Stack 초과 위험이 있습니다.
