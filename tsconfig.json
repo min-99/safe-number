@@ -15,7 +15,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@core/*": ["src/core/*"],
-      "@types/*": ["src/types/*"]
+      "@types/*": ["src/types/*"],
+      "@error/*": ["src/error/*"]
     }
   },
   "include": ["src", "tests"],

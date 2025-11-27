@@ -14,6 +14,7 @@ export default defineConfig({
       '@': './src',
       '@core': './src/core',
       '@types': './src/types',
+      '@error': './src/error',
     };
   },
 });

@@ -1,4 +1,5 @@
 import { NumberLike, toBigInt } from '@/types';
+import { ERROR_MESSAGES } from './error';
 
 /**
  * 뎃셈
@@ -30,7 +31,7 @@ export const subtraction = (a: NumberLike, b: NumberLike): bigint => {
 export const divide = (a: NumberLike, b: NumberLike): bigint => {
   const divisor = toBigInt(b);
   if (divisor === 0n) {
-    throw new RangeError('[safe-number] Division by 0 is not allowed.');
+    throw new RangeError(ERROR_MESSAGES.DIVISION_BY_ZERO);
   }
   return toBigInt(a) / divisor;
 };

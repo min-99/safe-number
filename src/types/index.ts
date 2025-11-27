@@ -1,3 +1,5 @@
+import { ERROR_MESSAGES } from '@/error';
+
 export type NumberLike = number | bigint | string;
 
 /**
@@ -9,8 +11,6 @@ export const toBigInt = (value: NumberLike): bigint => {
   try {
     return BigInt(value);
   } catch {
-    throw new TypeError(
-      `[safe-number] Invalid input: Cannot convert ${value} to BigInt.`,
-    );
+    throw new TypeError(ERROR_MESSAGES.INVALID_INPUT(value));
   }
 };

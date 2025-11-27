@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 
 import * as SafeMath from '../SafeMath';
+import { ERROR_MESSAGES } from '@/error';
 
 describe('SafeMath', () => {
   describe('plus', () => {
@@ -93,7 +94,7 @@ describe('SafeMath', () => {
       // 0으로 나누면 에러가 터져야 함
       expect(() => SafeMath.divide(100, 0)).toThrow(RangeError);
       expect(() => SafeMath.divide(100, '0')).toThrow(
-        '[safe-number] Division by 0 is not allowed.',
+        ERROR_MESSAGES.DIVISION_BY_ZERO,
       );
     });
   });
