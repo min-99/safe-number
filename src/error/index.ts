@@ -6,4 +6,5 @@ export const ERROR_MESSAGES = {
   EMPTY_ARRAY_MAX: `${PREFIX} Cannot calculate max of empty array.`, // 빈 배열에서 max 계산 시도할 때
   EMPTY_ARRAY_MIN: `${PREFIX} Cannot calculate min of empty array.`, // 빈 배열에서 min 계산 시도할 때
   EMPTY_ARRAY_SUM: `${PREFIX} Cannot calculate sum of empty array.`, // 빈 배열에서 sum 계산 시도할 때
+  INVALID_JSON: (text: string) => `${PREFIX} Invalid JSON: ${text}.`, // JSON 문자열이 유효하지 않을 때
 } as const;

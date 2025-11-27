@@ -21,6 +21,14 @@ describe('BigStats', () => {
       expect(BigStats.min([1, 2, 3, 4, 5])).toBe(1n);
     });
 
+    it('should return the minimum value when values are not in order', () => {
+      expect(BigStats.min([5, 2, 8, 1, 9])).toBe(1n);
+    });
+
+    it('should handle case where current value is not less than min', () => {
+      expect(BigStats.min([3, 2, 5])).toBe(2n);
+    });
+
     it('should throw an error if the array is empty', () => {
       expect(() => BigStats.min([])).toThrow(ERROR_MESSAGES.EMPTY_ARRAY_MIN);
     });
