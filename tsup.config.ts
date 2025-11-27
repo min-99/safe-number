@@ -9,4 +9,11 @@ export default defineConfig({
   clean: true, // 빌드 전 dist 폴더 정리
   treeshake: true, // 트리쉐이킹 활성화
   minify: true, // 코드 압축
+  esbuildOptions(options) {
+    options.alias = {
+      '@': './src',
+      '@core': './src/core',
+      '@types': './src/types',
+    };
+  },
 });
