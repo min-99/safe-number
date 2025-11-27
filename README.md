@@ -6,6 +6,10 @@
 >
 > **Type-Safe BigInt Utility Library for Modern TypeScript Projects**
 
+[![CI Status](https://img.shields.io/github/actions/workflow/status/min-99/safe-number/ci.yml?style=flat-square&logo=github)](https://github.com/min-99/safe-number/actions)
+
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+
 <br/>
 
 ## 🧐 Motivation (왜 만들었나요?)
