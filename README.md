@@ -5,7 +5,7 @@
 > Type-Safe BigInt Utility Library for Modern TypeScript Projects
 
 [![CI Status](https://img.shields.io/github/actions/workflow/status/min-99/safe-number/ci.yml?style=flat-square&logo=github)](https://github.com/min-99/safe-number/actions)
-[![npm version](https://img.shields.io/npm/v/safe-number.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/@min-99/safe-number)
+[![npm version](https://img.shields.io/npm/v/@min-99/safe-number.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/@min-99/safe-number)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://opensource.org/licenses/ISC)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
