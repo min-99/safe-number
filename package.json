@@ -32,6 +32,14 @@
   ],
   "author": "min-99",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/min-99/safe-number.git"
+  },
+  "homepage": "https://github.com/min-99/safe-number#readme",
+  "bugs": {
+    "url": "https://github.com/min-99/safe-number/issues"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
