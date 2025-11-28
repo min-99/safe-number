@@ -105,21 +105,28 @@ a,b가 될 수 있는 타입: number, bigint, string
 ```ts
 // 코드 예시
 
-import { max, sum } from '@min-99/safe-number';
+import { max, sum, min } from '@min-99/safe-number';
 
 const data = [10, '500', 5n, '999999999999999999'];
 
 // 배열 내 최대값 찾기 (타입 혼용 가능)
-const max = max(data);
-console.log(max); // 999999999999999999n
+const maxValue = max(data);
+console.log(maxValue); // 999999999999999999n
 
 // 합계
-const sum = sum(data);
+const total = sum(data);
+console.log(total); // 500000000000000014n
+
+// 최소값
+const minValue = min(data);
+console.log(minValue); // 5n
 ```
 
 ### 3. JSON 변환 (SafeJson)
 
-서버 통신 시 BigInt 필드가 있어도 당황하지 마세요.
+서버 통신 시 BigInt 필드가 있어도 당황하지 마세요. `JSON.stringify`와 호환되며, 함수와 심볼은 표준과 동일하게 제거됩니다.
+
+**참고:** `parse` 함수는 객체(`{}`)만 반환합니다. 배열이나 원시값을 파싱하면 에러가 발생합니다.
 
 ### 사용가능한 함수 목록
 
@@ -131,18 +138,24 @@ const sum = sum(data);
 ```ts
 // 코드 예시
 
-import { stringify } from '@min-99/safe-number';
+import { stringify, parse } from '@min-99/safe-number';
 
 const payload = {
   id: 100n,
   balance: 999999999999999999n,
   user: 'toss',
+  fn: () => {}, // 함수는 제거됨 (JSON.stringify와 동일)
+  sym: Symbol('test'), // 심볼도 제거됨 (JSON.stringify와 동일)
 };
 
-// ❌ JSON.stringify(payload) -> TypeError
+// ❌ JSON.stringify(payload) -> TypeError: Do not know how to serialize a BigInt
 // ✅ stringify(payload)
 const jsonStr = stringify(payload);
 // Output: '{"id":100n,"balance":999999999999999999n,"user":"toss"}'
+
+// 역직렬화
+const parsed = parse(jsonStr);
+// { id: 100n, balance: 999999999999999999n, user: 'toss' }
 ```
 
 <br/>
@@ -163,6 +176,7 @@ safe-number/
 │   ├── stats/           # 통계 유틸리티 (BigStats)
 │   ├── json/            # JSON 처리기 (SafeJson)
 │   ├── types/           # 공용 타입 정의 (NumberLike 등)
+│   ├── error/           # 에러 메시지 중앙 관리
 │   └── index.ts         # Entry Point
 ├── tests/               # 통합 테스트 및 엣지 케이스 검증
 ├── tsup.config.ts       # 번들링 설정
@@ -188,4 +202,4 @@ safe-number/
 
 2. Build Check: tsup 빌드 정상 여부
 
-3. Test Coverage: vitest run --coverage로 로직 검증 (목표 커버리지 100%)
+3. Test Coverage: vitest run --coverage로 로직 검증 (목표 커버리지 90%)

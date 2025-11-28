@@ -71,12 +71,14 @@ describe('SafeJson', () => {
 
     it('should stringify a function using default case', () => {
       const fn = () => {};
-      expect(SafeJson.stringify({ a: fn })).toBe('{"a":undefined}');
+      // JSON.stringify와 동일하게 함수가 포함된 키-값 쌍은 제거됨
+      expect(SafeJson.stringify({ a: fn })).toBe('{}');
     });
 
     it('should stringify a symbol using default case', () => {
       const sym = Symbol('test');
-      expect(SafeJson.stringify({ a: sym })).toBe('{"a":undefined}');
+      // JSON.stringify와 동일하게 함수가 포함된 키-값 쌍은 제거됨
+      expect(SafeJson.stringify({ a: sym })).toBe('{}');
     });
   });
 
@@ -140,5 +142,74 @@ describe('SafeJson', () => {
         ERROR_MESSAGES.INVALID_JSON(json),
       );
     });
+
+    it('should throw error for unclosed string in key (custom parser)', () => {
+      const json = '{"unclosed:1}';
+      expect(() => SafeJson.parse(json)).toThrow(
+        ERROR_MESSAGES.INVALID_JSON_UNCLOSED_STRING,
+      );
+    });
+
+    it('should throw error for invalid key format (custom parser)', () => {
+      const json = '{"key\\u":1}';
+      expect(() => SafeJson.parse(json)).toThrow(
+        ERROR_MESSAGES.INVALID_JSON_INVALID_KEY_FORMAT,
+      );
+    });
+
+    it('should throw error when colon is missing after key', () => {
+      const json = '{"key"x1}';
+      expect(() => SafeJson.parse(json)).toThrow(
+        ERROR_MESSAGES.INVALID_JSON_EXPECTED_COLON_AFTER_KEY,
+      );
+    });
+
+    it('should throw error when colon is missing at end (custom parser)', () => {
+      expect(() => SafeJson.parse('{"key" }')).toThrow(
+        ERROR_MESSAGES.INVALID_JSON_EXPECTED_COLON_AFTER_KEY,
+      );
+    });
+
+    it('should execute i++ in colon search loop (custom parser)', () => {
+      expect(() => SafeJson.parse('{"key"   x}')).toThrow(
+        ERROR_MESSAGES.INVALID_JSON_EXPECTED_COLON_AFTER_KEY,
+      );
+    });
+
+    it('should throw error for missing key (custom parser)', () => {
+      const json = '{:1}';
+      expect(() => SafeJson.parse(json)).toThrow();
+    });
+
+    it('should throw error for missing key', () => {
+      const json = '{:1}';
+      expect(() => SafeJson.parse(json)).toThrow();
+    });
+  });
+
+  it('should stringify and parse complex nested object with NumberLike', () => {
+    const json = {
+      a: 1, // number
+      b: 10n,
+      c: '100',
+      d: '100n',
+      e: 'n',
+      f: true,
+      g: null,
+      h: undefined,
+      i: [1, 2, 3],
+      j: { a: 1, b: 2, c: 3 },
+      m: {
+        n: {
+          o: 1,
+          p: 2,
+          q: 3,
+        },
+      },
+    };
+    const result = SafeJson.stringify(json);
+    const parsed = SafeJson.parse(result);
+
+    expect(parsed).toEqual(json);
   });
 });
