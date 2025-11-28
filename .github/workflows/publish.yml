@@ -19,6 +19,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@min-99'
 
       - name: Install Dependencies
         run: pnpm install
@@ -28,12 +30,8 @@ jobs:
           pnpm lint
           pnpm build
 
-      - name: Create .npmrc config
-        run: |
-          echo "@min-99:registry=https://registry.npmjs.org/" > .npmrc
-          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" >> .npmrc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+      # 배포
       - name: Publish to NPM
         run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

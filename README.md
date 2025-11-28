@@ -1,7 +1,5 @@
 # 🛡️ safe-number
 
-v1.0.2 배포 테스트 성공
-
 > "JavaScript의 `Number` 한계를 넘어, 금융/알고리즘 연산을 안전하고 편리하게."
 >
 > Type-Safe BigInt Utility Library for Modern TypeScript Projects
