@@ -1,5 +1,5 @@
 import { toBigInt, type NumberLike } from '@/types';
-import { ERROR_MESSAGES } from './error';
+import { ERROR_MESSAGES } from '@/error';
 
 /**
  * 배열 내 최댓값을 찾습니다. (Stack Overflow 방지)

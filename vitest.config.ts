@@ -12,12 +12,14 @@ export default defineConfig({
       reporter: ['text', 'json', 'html'],
       exclude: ['node_modules/', 'dist/', '**/*.config.*'],
     },
-    include: ['src/tests/**/*.test.ts'],
+    include: ['tests/**/*.test.ts'],
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@core': path.resolve(__dirname, './src/core'),
+      '@stats': path.resolve(__dirname, './src/stats'),
+      '@json': path.resolve(__dirname, './src/json'),
       '@types': path.resolve(__dirname, './src/types'),
       '@error': path.resolve(__dirname, './src/error'),
     },

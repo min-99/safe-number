@@ -13,6 +13,8 @@ export default defineConfig({
     options.alias = {
       '@': './src',
       '@core': './src/core',
+      '@stats': './src/stats',
+      '@json': './src/json',
       '@types': './src/types',
       '@error': './src/error',
     };

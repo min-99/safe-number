@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import * as SafeJson from '../SafeJson';
+import * as SafeJson from '@json/SafeJson';
 import { ERROR_MESSAGES } from '@/error';
 
 describe('SafeJson', () => {

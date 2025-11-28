@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import * as BigStats from '../BigStats';
+import * as BigStats from '@stats/BigStats';
 import { ERROR_MESSAGES } from '@/error';
 
 describe('BigStats', () => {

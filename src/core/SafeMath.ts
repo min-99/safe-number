@@ -1,5 +1,5 @@
 import { NumberLike, toBigInt } from '@/types';
-import { ERROR_MESSAGES } from './error';
+import { ERROR_MESSAGES } from '@/error';
 
 /**
  * 뎃셈

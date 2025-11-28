@@ -1,4 +1,4 @@
-import { ERROR_MESSAGES } from './error';
+import { ERROR_MESSAGES } from '@/error';
 
 /**
  * 값을 JSON 문자열로 변환하는 헬퍼 함수

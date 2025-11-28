@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import * as SafeMath from '../SafeMath';
+import * as SafeMath from '@core/SafeMath';
 import { ERROR_MESSAGES } from '@/error';
 
 describe('SafeMath', () => {
