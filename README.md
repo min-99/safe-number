@@ -5,8 +5,11 @@
 > Type-Safe BigInt Utility Library for Modern TypeScript Projects
 
 [![CI Status](https://img.shields.io/github/actions/workflow/status/min-99/safe-number/ci.yml?style=flat-square&logo=github)](https://github.com/min-99/safe-number/actions)
-
+[![npm version](https://img.shields.io/npm/v/safe-number.svg?style=flat-square&logo=npm)](https://www.npmjs.com/package/@min-99/safe-number)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://opensource.org/licenses/ISC)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+
+<!-- [![Coverage](https://img.shields.io/codecov/c/github/your-username/safe-number?style=flat-square&logo=codecov)](https://codecov.io/gh/min-99/safe-number) -->
 
 <br/>
 
@@ -203,3 +206,17 @@ safe-number/
 2. Build Check: tsup 빌드 정상 여부
 
 3. Test Coverage: vitest run --coverage로 로직 검증 (목표 커버리지 90%)
+
+### 🤝 Contributing
+
+기여는 언제나 환영합니다! 새로운 기능 제안이나 버그 제보는 Issue를 등록해 주세요.
+
+1. Fork this repository
+
+2. Create your feature branch (git checkout -b feature/{기능명})
+
+3. Commit your changes (git commit -m 'feat: {기능명}')
+
+4. Push to the branch (git push origin feature/{기능명})
+
+5. Open a Pull Request
