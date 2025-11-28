@@ -29,6 +29,11 @@ jobs:
           pnpm lint
           pnpm build
 
+      - name: Create .npmrc config
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+
       # 버전이 이미 있는지 확인하고 배포하는 안전장치
       - name: Publish to NPM
         run: pnpm publish --no-git-checks
