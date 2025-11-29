@@ -9,7 +9,7 @@
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://opensource.org/licenses/ISC)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
-<!-- [![Coverage](https://img.shields.io/codecov/c/github/your-username/safe-number?style=flat-square&logo=codecov)](https://codecov.io/gh/min-99/safe-number) -->
+[![Coverage](https://img.shields.io/codecov/c/github/min-99/safe-number?style=flat-square&logo=codecov)](https://codecov.io/gh/min-99/safe-number)
 
 <br/>
 
